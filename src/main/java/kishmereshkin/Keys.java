@@ -16,6 +16,8 @@ public class Keys {
         return keyArrayList.get(index);
     }
     public void addKey(int value){
-        keyArrayList.add(value);
+        if(value>=-31 && value<=31){
+            keyArrayList.add(value);
+        }
     }
 }
