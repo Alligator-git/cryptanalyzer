@@ -2,7 +2,7 @@ package kishmereshkin;
 
 import java.util.ArrayList;
 
-public class Keys {
+public class Keys {//Используются для создания и хранения ключей
     private Keys(){
     }
     private static Keys keys = new Keys();

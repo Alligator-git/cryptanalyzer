@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Encoder {
-    //Алфавит
+    //Алфавит и знаки для кодировки
     ArrayList<Character> russianSmallLitters = new ArrayList<>(List.of('а','б','в','г','д','е',
             'ё','ж','з','и','Й','к','л'
             ,'м','н','о','п','р','с','т'
@@ -21,14 +21,16 @@ public class Encoder {
 
         if(!str.isEmpty()){
             str.forEach(s -> {
+
                 int index1 = str.indexOf(s);
-                int keyInt = Keys.getInstance().getKey(indexKey);
+                int keyInt = Keys.getInstance().getKey(indexKey);//Значение ключа
                 String[] arrayString = s.split(" ");//Разрезаю строку на подстроки
                 String result = "";//Переменная для вывода результата
-                String s1 = "";//Переменная для вывода результата
+
+
                 for(int count = 0;count!=arrayString.length;count++){
 
-                    char[] strToChar = arrayString[count].toCharArray();
+                    char[] strToChar = arrayString[count].toCharArray();//Разрезаю слово на массив char
                     int lenght = strToChar.length;
                     char[] chars = new char[lenght];
                     for(int i = 0;i!=strToChar.length;i++){
@@ -64,7 +66,7 @@ public class Encoder {
                         }
 
                     }
-                    String s2 = String.valueOf(chars);
+                    String s2 = String.valueOf(chars);//Формирую результат
                     result = result + " " +s2;
                 }
                 newStr.add(index1, result.trim());

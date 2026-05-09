@@ -1,7 +1,6 @@
 package kishmereshkin;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Decoder {
@@ -23,6 +22,7 @@ public class Decoder {
         List<String> newStr = new ArrayList<>();
         if(str.isEmpty()){
             str.forEach(s -> {
+
                 int index1 = str.indexOf(s);
                 int keyInt = Keys.getInstance().getKey(indexKey);
                 String[] arrayString = s.split(" ");//Разрезаю строку на подстроки
@@ -31,8 +31,8 @@ public class Decoder {
                 for(int count = 0;count!=arrayString.length;count++){
 
                     char[] strToChar = arrayString[count].toCharArray();
-                    int lenght = strToChar.length;
-                    char[] chars = new char[lenght];
+                    int length = strToChar.length;//Узнаю длину слова
+                    char[] chars = new char[length];//Создаю массив char для нового слова
                     for(int i = 0;i!=strToChar.length;i++){
 
                         if (strToChar[i] == ' ' || znak.contains(strToChar[i]) || strToChar[i] == '\n')
@@ -66,10 +66,10 @@ public class Decoder {
                         }
 
                     }
-                    String s2 = String.valueOf(chars);
+                    String s2 = String.valueOf(chars);//Формирую результат
                     result = result + " " +s2;
                 }
-                newStr.add(index1, result.trim());
+                newStr.add(index1, result.trim());//Убираю лишние внешние пробелы
             });
         }
         return str;
