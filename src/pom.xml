@@ -8,5 +8,16 @@
     <artifactId>cryptanalyzer</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>cryptanalyzer</name>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>17.0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>17.0.12</version>
+        </dependency>
+    </dependencies>
 </project>

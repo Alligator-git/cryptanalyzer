@@ -16,7 +16,7 @@ public class Keys {//Используются для создания и хра�
         return keyArrayList.get(index);
     }
     public void addKey(int value){
-        if(value>=-31 && value<=31){
+        if(value>=1 && value<=32){
             keyArrayList.add(value);
         }
     }
