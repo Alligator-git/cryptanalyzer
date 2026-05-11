@@ -12,8 +12,6 @@ import java.util.List;
 
 public class Dictionary {
     private HashSet<String> dictionary;
-    private List<String> list = new ArrayList<>();
-    private String src = "/kishmereshkin/russian_surnames.txt";
     public boolean russianDictionary(String str){
         if(!dictionary.contains(str))
             return false;

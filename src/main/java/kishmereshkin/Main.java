@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
     static void main() {
         Keys.getInstance().addKey(2);
-
+        Keys.getInstance().addKey(3);
         String src = "C:\\Users\\Andrey\\Desktop\\Тест программы2.txt";
         SaveToFile saveToFile = new SaveToFile();
         ReadingFromFile readingFromFile = new ReadingFromFile();
@@ -29,5 +29,8 @@ public class Main {
 
         str.forEach(s -> System.out.println(s));
         System.out.println(bruteForce.bruteForce(src));
+        System.out.println("Статический декодер. Тест...");
+        StaticDecoder staticDecoder = new StaticDecoder();
+        System.out.println(staticDecoder.decoder(encoder.encoder(str1,1)));
     }
 }
