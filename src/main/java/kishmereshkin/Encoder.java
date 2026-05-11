@@ -16,7 +16,7 @@ public class Encoder {
             ,'У','Ф','Х','Ц','Ч','Ш','Щ'
             ,'Ъ','Ь','Э','Ю','Я'));
     ArrayList<Character> znak = new ArrayList<>(List.of('.','!','?',',','\\','|','/',';',':'));
-    public List<String> encod(List<String> str, int indexKey){
+    public List<String> encoder(List<String> str, int indexKey){
         List<String> newStr = new ArrayList<>();
 
         if(!str.isEmpty()){
@@ -73,5 +73,51 @@ public class Encoder {
             });
         }
         return newStr;
+    }
+    public String encoderWithStep(String str, int step){//Этот метод используется для метода BruteForce
+        List<String> newStr = new ArrayList<>();
+        String result = "";//Переменная для вывода результата
+        if(!str.isEmpty()){
+                int keyInt = step;//Значение ключа
+                    char[] strToChar = str.toCharArray();//Разрезаю слово на массив char
+                    int lenght = strToChar.length;
+                    char[] chars = new char[lenght];
+                    for(int i = 0;i!=strToChar.length;i++){
+
+                        if (strToChar[i] == ' ' || znak.contains(strToChar[i]) || strToChar[i] == '\n')
+                            continue;
+
+                        if (russianSmallLitters.contains(strToChar[i])) {
+
+
+                            int index = russianSmallLitters.indexOf(strToChar[i]);
+
+                            if (index + keyInt >= 32) {
+                                int indexChar = index + keyInt - 32;
+                                chars[i] = russianSmallLitters.get(indexChar);
+                            } else {
+                                int indexChar = index + keyInt;
+                                chars[i] = russianSmallLitters.get(indexChar);
+                            }
+                        }
+
+                        if (russianBigLitters.contains(strToChar[i])) {
+
+                            int index = russianBigLitters.indexOf(strToChar[i]);
+
+                            if (index + keyInt >= 32) {
+                                int indexChar = index + keyInt - 32;
+                                chars[i] = russianBigLitters.get(indexChar);
+                            } else {
+                                int indexChar = index + keyInt;
+                                chars[i] = russianBigLitters.get(indexChar);
+                            }
+                        }
+
+                    String s2 = String.valueOf(chars);//Формирую результат
+                    result = s2;
+                }
+        }
+        return result;
     }
 }
