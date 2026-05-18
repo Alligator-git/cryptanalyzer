@@ -8,6 +8,12 @@
     <artifactId>cryptanalyzer</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>cryptanalyzer</name>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <javafx.version>17.0.12</javafx.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -20,4 +26,22 @@
             <version>17.0.12</version>
         </dependency>
     </dependencies>
+    <build>
+        <finalName>Шифратор</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.12.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>kishmereshkin.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
