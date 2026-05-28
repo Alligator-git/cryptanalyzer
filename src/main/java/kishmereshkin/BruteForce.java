@@ -8,25 +8,52 @@ import java.util.List;
 public class BruteForce {
     public int bruteForce(String src) {
         System.out.println("Начинается подборка ключа...");
-        Path path = Path.of(src);
         ReadingFromFile readingFromFile = new ReadingFromFile();
         Decoder decoder = new Decoder();
         Dictionary dictionary = new Dictionary();
         dictionary.loadDictionary();
-        List<String> lines = readingFromFile.readingFromFile(src,2);
-        int result = 0;
-        for (String s:lines){
-            String[] str = s.split(" ");
-            for(int step = 0;step!=32;step++){
-                for (int i =0;i!=str.length;i++){
-                    String s1 = decoder.decoderWithStep(str[i],step);
-                    if(dictionary.russianDictionary(s1)){
-                        return step;
+
+        // Читаем строки из файла
+        List<String> lines = readingFromFile.readingFromFile(src, 4);
+
+        int bestStep = 0;
+        int maxMatches = -1; //Максимальное количество совпавших слов
+
+        // Перебираем все возможные шаги (от 0 до 31)
+        for (int step = 0; step < 32; step++) {
+            int currentStepMatches = 0;
+
+            for (String line : lines) {
+
+                String decryptedLine = decoder.decoderWithStep(line, step);
+
+
+                String[] words = decryptedLine.split("\\s+");
+
+                for (String word : words) {
+
+                    String cleanWord = word.toLowerCase().replaceAll("[^а-яё]", "");
+
+                    if (!cleanWord.isEmpty() && dictionary.russianDictionary(cleanWord)) {
+                        currentStepMatches++;
                     }
                 }
+            }
 
+            // Если этот шаг даёт больше осмысленных слов, чем предыдущие, запоминаем его
+            if (currentStepMatches > maxMatches) {
+                maxMatches = currentStepMatches;
+                bestStep = step;
+            }
+
+
+            if (currentStepMatches > 15) {
+                System.out.println("Ключ успешно подобран методом BruteForce!");
+                return step;
             }
         }
-        return result;
+
+        System.out.println("Подбор окончен. Лучший результат с шагом: " + bestStep + " (Совпало слов: " + maxMatches + ")");
+        return bestStep;
     }
 }

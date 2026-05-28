@@ -44,7 +44,7 @@ public class Decoder {
                             int index = russianSmallLitters.indexOf(strToChar[i]);
 
                             if (index - keyInt <=0) {
-                                int indexChar = index + keyInt + 32;
+                                int indexChar = index - keyInt - 32;
                                 chars[i] = russianSmallLitters.get(indexChar);
                             } else {
                                 int indexChar = index - keyInt;
@@ -57,7 +57,7 @@ public class Decoder {
                             int index = russianBigLitters.indexOf(strToChar[i]);
 
                             if (index - keyInt <= 0) {
-                                int indexChar = index + keyInt + 32;
+                                int indexChar = index - keyInt + 32;
                                 chars[i] = russianBigLitters.get(indexChar);
                             } else {
                                 int indexChar = index - keyInt;
@@ -75,49 +75,40 @@ public class Decoder {
         return str;
     }
     public String decoderWithStep(String str,int step){//Этот метод используется для метода BruteForce
-        List<String> newStr = new ArrayList<>();
-        String result = "";//Переменная для вывода результата
-        if(!str.isEmpty()){
-            int keyInt = step;//Значение ключа
-            char[] strToChar = str.toCharArray();//Разрезаю слово на массив char
-            int lenght = strToChar.length;
-            char[] chars = new char[lenght];
-            for(int i = 0;i!=strToChar.length;i++){
 
-                if (strToChar[i] == ' ' || znak.contains(strToChar[i]) || strToChar[i] == '\n')
-                    continue;
+        StringBuilder result = new StringBuilder();
+        char[] strToChar = str.toCharArray();
 
-                if (russianSmallLitters.contains(strToChar[i])) {
+        int alphabetSize = russianSmallLitters.size();
 
+        for (int count = 0; count < strToChar.length; count++) {
+            char currentChar = strToChar[count];
 
-                    int index = russianSmallLitters.indexOf(strToChar[i]);
+            if (russianSmallLitters.contains(currentChar)) {
+                int index = russianSmallLitters.indexOf(currentChar);
 
-                    if (index - keyInt <= 0) {
-                        int indexChar = index + keyInt + 32;
-                        chars[i] = russianSmallLitters.get(indexChar);
-                    } else {
-                        int indexChar = index - keyInt;
-                        chars[i] = russianSmallLitters.get(indexChar);
-                    }
+                int indexChar = (index - step) % alphabetSize;
+                if (indexChar < 0) {
+                    indexChar += alphabetSize;
                 }
 
-                if (russianBigLitters.contains(strToChar[i])) {
+                result.append(russianSmallLitters.get(indexChar));
 
-                    int index = russianBigLitters.indexOf(strToChar[i]);
-
-                    if (index - keyInt <= 0) {
-                        int indexChar = index + keyInt + 32;
-                        chars[i] = russianBigLitters.get(indexChar);
-                    } else {
-                        int indexChar = index - keyInt;
-                        chars[i] = russianBigLitters.get(indexChar);
-                    }
+            } else if (russianBigLitters.contains(currentChar)) {
+                int index = russianBigLitters.indexOf(currentChar);
+                int indexChar = (index - step) % alphabetSize;
+                if (indexChar < 0) {
+                    indexChar += alphabetSize;
                 }
+                result.append(russianBigLitters.get(indexChar));
 
-                String s2 = String.valueOf(chars);//Формирую результат
-                result = s2;
+            } else {
+
+                result.append(currentChar);
             }
         }
-        return result;
+
+        System.out.println(result);
+        return result.toString();
     }
 }

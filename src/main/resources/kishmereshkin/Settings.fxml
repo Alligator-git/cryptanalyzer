@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="AnchorPaneSettings" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="364.0" style="-fx-background-color: #dbd5d5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kishmereshkin.ControllerSetting">
+   <children>
+      <Label layoutX="14.0" layoutY="6.0" text="Настройки" />
+      <ColorPicker id="settingsColorBackground" fx:id="settingsColorBackground" cache="true" layoutX="11.0" layoutY="36.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#settingsColorBackgroundChoose" promptText="Фон" style="-fx-background-color: #bab1b1;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </ColorPicker>
+      <ColorPicker id="settingsColorButtons" fx:id="settingsColorButtons" cache="true" layoutX="11.0" layoutY="69.0" onAction="#settingsColorButtonsChoose" promptText="Кнопки" style="-fx-background-color: #bab1b1;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </ColorPicker>
+      <Button id="settingsBruteForce" fx:id="settingsBruteForce" layoutX="11.0" layoutY="104.0" mnemonicParsing="false" onAction="#settingsBruteForceClick" prefHeight="26.0" prefWidth="223.0" style="-fx-background-color: #bab1b1;" text="Brute force">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button id="settingsStaticMethod" fx:id="settingsStaticMethod" layoutX="11.0" layoutY="139.0" mnemonicParsing="false" onAction="#settingsStaticMethodClick" prefHeight="26.0" prefWidth="223.0" style="-fx-background-color: #bab1b1;" text="Статический метод расшифровки">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button id="settingsRandomEncoder" fx:id="settingsRandomEncoder" layoutX="11.0" layoutY="172.0" mnemonicParsing="false" onAction="#settingsRandomEncoderClick" prefHeight="26.0" prefWidth="223.0" style="-fx-background-color: #bab1b1;" text="Шифрование рандомным ключем">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button id="settingsEncoder" fx:id="settingsEncoder" layoutX="11.0" layoutY="211.0" mnemonicParsing="false" onAction="#settingsChooseKeyEncoderClick" style="-fx-background-color: #bab1b1;" text="Шифрование определенным ключем">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button id="settingClose" fx:id="settingClose" layoutX="288.0" layoutY="11.0" mnemonicParsing="false" onAction="#settingCloseClick" style="-fx-background-color: #bab1b1;" text="Закрыть">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="settingEncodThisText" layoutX="11.0" layoutY="249.0" mnemonicParsing="false" onAction="#settingEncodThisText" prefHeight="26.0" prefWidth="223.0" style="-fx-background-color: #bab1b1;" text="Шифрование введённого текста">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

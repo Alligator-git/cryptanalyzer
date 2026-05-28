@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="AnchorPaneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="706.0" style="-fx-background-color: #dbd5d5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kishmereshkin.Controller">
+      <children>
+         <Button id="OkButton" fx:id="okButton" layoutX="574.0" layoutY="378.0" mnemonicParsing="false" onAction="#okButtonClick" prefHeight="26.0" prefWidth="111.0" style="-fx-background-color: #bab1b1;" text="Подтвердить">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+         <Button id="chooseFile" fx:id="chooseFile" layoutX="14.0" layoutY="378.0" mnemonicParsing="false" onAction="#chooseFileClick" prefHeight="26.0" prefWidth="138.0" style="-fx-background-color: #bab1b1;" text="Выбрать файл">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+         <TextField fx:id="inputField" layoutX="226.0" layoutY="14.0" prefHeight="78.0" prefWidth="254.0" promptText="Введите вариант шифровки от 0 и ди 32">
+         <effect>
+            <InnerShadow />
+         </effect></TextField>
+         <TextArea fx:id="outputArea" layoutX="179.0" layoutY="109.0" prefHeight="59.0" prefWidth="348.0" promptText="Здесь будет вердикт расшифровки текста">
+         <effect>
+            <InnerShadow />
+         </effect></TextArea>
+         <Button id="settings" fx:id="settings" layoutX="14.0" layoutY="41.0" mnemonicParsing="false" onAction="#settingOpenWindow" style="-fx-background-color: #bab1b1;" text="Настройки программы">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      </children>
+      </AnchorPane>

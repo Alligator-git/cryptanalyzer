@@ -15,9 +15,10 @@ public class Keys {//Используются для создания и хра�
     public int getKey(int index) {
         return keyArrayList.get(index);
     }
-    public void addKey(int value){
-        if(value>=1 && value<=32){
+    public int addKey(int value){
+        if(value>=0 && value<=32){
             keyArrayList.add(value);
         }
+        return keyArrayList.indexOf(value);
     }
 }
