@@ -29,17 +29,17 @@ public class StartFXSettings {
 
 
             primaryStage.setTitle("Настройки приложения");
-            primaryStage.setMaxWidth(300.0);
-            primaryStage.setMaxHeight(300.0);
-            primaryStage.setMinHeight(200.0);
-            primaryStage.setMinWidth(150.0);
+            primaryStage.setMaxWidth(500.0);
+            primaryStage.setMaxHeight(500.0);
+            primaryStage.setMinHeight(400);
+            primaryStage.setMinWidth(400);
             primaryStage.setScene(scene);
-            primaryStage.setResizable(false);//Разрешение на изменение размера окна
+            primaryStage.setResizable(true);//Разрешение на изменение размера окна
             primaryStage.initOwner(stageMain);
 
             primaryStage.initModality(Modality.WINDOW_MODAL);// Блокировка окна родителя
 
-            //primaryStage.setAlwaysOnTop(true);
+            primaryStage.setAlwaysOnTop(true);
 
             primaryStage.show();
 

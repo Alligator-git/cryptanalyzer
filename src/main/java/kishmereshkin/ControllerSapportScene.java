@@ -59,44 +59,58 @@ public class ControllerSapportScene {
 
             case 3->outputText.setText(decoder.decoderWithStep(inputText.getText(),spinner.getValue()));
 
-            case 4 ->outputText.setText(decoder.decoderWithStep(outputText.getText(),
+            case 4 ->{
+                outputText.setText(decoder.decoderWithStep(outputText.getText(),
                     staticDecoder.decoder(inputText.getText())));
+                System.out.println(decoder.decoderWithStep(outputText.getText(),
+                        staticDecoder.decoder(inputText.getText())));
+            }
 
-            case 5->outputText.setText(decoder.decoderWithStep(inputText.getText(),
-                    bruteForce.bruteForce(inputText.getText())));
+            case 5->{
+                outputText.setText(decoder.decoderWithStep(inputText.getText(),
+                    bruteForce.bruteForceStr(inputText.getText())));
+
+            }
         }
 
-        outputText.appendText(String.valueOf(encoder.encoderWithCollectionInput(Collections.singletonList(inputText.getText()), keys.addKey(spinner.getValue()))));
+        //outputText.appendText(String.valueOf(encoder.encoderWithCollectionInput(Collections.singletonList(inputText.getText()), keys.addKey(spinner.getValue()))));
     }
     @FXML
     private void choseMethodSapport(ActionEvent event){
         choseMethod.arm();
-        String name = choseMethod.getText();
+        MenuItem menuItem = (MenuItem) event.getSource();
+        String name = menuItem.getText();
+        System.out.println(name);
 
         method = switch (name){
             case "Шифр. с ключом" -> {
                 spinner.setVisible(true);
                 spinner.setEditable(true);
+                choseMethod.setText("Шифр. с ключом");
                 yield 1;
             }
             case "Шифр. рандомно" -> {
                 spinner.setVisible(false);
                 spinner.setEditable(false);
+                choseMethod.setText("Шифр. рандомно");
                 yield 2;
             }
             case "Расшифр. с ключём" -> {
                 spinner.setVisible(true);
                 spinner.setEditable(true);
+                choseMethod.setText("Расшифр. с ключём");
                 yield 3;
             }
             case "Статистический метод" -> {
                 spinner.setVisible(false);
                 spinner.setEditable(false);
+                choseMethod.setText("Статистический метод");
                 yield 4;
             }
             case "BruteForce" -> {
                 spinner.setVisible(false);
                 spinner.setEditable(false);
+                choseMethod.setText("BruteForce");
                 yield 5;
             }
             default -> 0;

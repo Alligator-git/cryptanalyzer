@@ -85,4 +85,77 @@ public class StaticDecoder {
         List<Character> smallLitters = Alphabet.russianSmallLitters;
         smallLitters.forEach(character -> hashMap.put(character,0));
     }
+    public String decoderStr(String str){
+        int finalyIndex = 0;
+        System.out.println("Начинается подборка ключа методом частотного анализа...");
+
+        automaticHashMap();
+
+        Dictionary dictionary = new Dictionary();
+        dictionary.loadDictionary();
+        Decoder decoder = new Decoder();
+
+        int letterO = Alphabet.getIndexLettres('о');
+        int letterE = Alphabet.getIndexLettres('е');
+        int letterA = Alphabet.getIndexLettres('а');
+
+        int[] targetLetters = {letterO, letterE, letterA};
+        int alphabetSize = 32;
+
+
+        char[] letters = str.toLowerCase().toCharArray();
+        for (char c : letters) {
+
+            if (hashMap.containsKey(c)) {
+                hashMap.put(c, hashMap.get(c) + 1);
+            }
+        }
+
+
+        // 2. Поиск символов с максимальной частотой
+        List<Character> mostLetters = new ArrayList<>();
+        if (!hashMap.isEmpty()) {
+            int max = Collections.max(hashMap.values());
+            hashMap.forEach((key, value) -> {
+                if (value == max) {
+                    mostLetters.add(key);
+                }
+            });
+        }
+
+
+        for (char mostChar : mostLetters) {
+            int index = Alphabet.getIndexLettres(mostChar);
+            if (index == -1) continue; // Пропускаем, если символ не найден в алфавите
+
+            for (int targetLetter : targetLetters) {
+                // Вычисляем потенциальный шаг (сдвиг)
+                finalyIndex = (index - targetLetter) % alphabetSize;
+                if (finalyIndex < 0) {
+                    finalyIndex += alphabetSize;
+                }
+
+                // ПРОВЕРКА: Дешифровка всей первой строчки
+                String testLine = decoder.decoderWithStep(str, finalyIndex);
+                String[] words = testLine.split("\\s+");
+
+                int matches = 0;
+                for (String word : words) {
+                    String cleanWord = word.toLowerCase().replaceAll("[^а-яё]", "");
+                    if (!cleanWord.isEmpty() && dictionary.russianDictionary(cleanWord)) {
+                        matches++;
+                    }
+                }
+
+
+                if (matches >= 2 || (words.length == 1 && matches == 1)) {
+                    System.out.println("Ключ успешно найден: " + finalyIndex);
+                    return decoder.decoderWithStep(str,finalyIndex);
+                }
+            }
+        }
+
+        System.out.println("Частотный анализ не дал точного результата, возвращаем 0.");
+        return null;
+    }
 }

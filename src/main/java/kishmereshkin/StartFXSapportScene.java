@@ -23,6 +23,7 @@ public class StartFXSapportScene {
         stage = new Stage();
         stage.setScene(scene);
         stage.initOwner(stageMain);
+        stage.setTitle("Шифровка вашего текста");
         stage.initModality(Modality.WINDOW_MODAL);
 
         stage.show();

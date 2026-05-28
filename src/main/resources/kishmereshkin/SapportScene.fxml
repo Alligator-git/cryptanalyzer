@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
 
 <Pane fx:id="paneSapport" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kishmereshkin.ControllerSapportScene">
    <children>
@@ -37,15 +32,15 @@
       <Label layoutX="117.0" layoutY="235.0" text="Ввод текста" />
       <Label layoutX="455.0" layoutY="235.0" text="Вывод текста" />
       <Label layoutX="262.0" layoutY="353.0" text="Выбор ключа" />
-      <Button fx:id="okButtonSapportScene" layoutX="498.0" layoutY="361.0" mnemonicParsing="false" text="Подтвердить" />
+      <Button fx:id="okButtonSapportScene" layoutX="498.0" layoutY="361.0" mnemonicParsing="false" onAction="#okButtonClick" text="Подтвердить" />
       <Button fx:id="close" layoutX="527.0" layoutY="315.0" mnemonicParsing="false" onAction="#closeScene" text="Закрыть" />
       <MenuButton fx:id="choseMethod" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#choseMethodSapport" prefHeight="25.0" prefWidth="174.0" text="Что делать?">
         <items>
-          <MenuItem id="1" mnemonicParsing="false" text="Шифр. с ключом" />
-          <MenuItem id="2" mnemonicParsing="false" text="Шифр. рандомно" />
-            <MenuItem id="3" mnemonicParsing="false" text="Расшифр. с ключём" />
-            <MenuItem id="4" mnemonicParsing="false" text="Статистический метод" />
-            <MenuItem id="5" mnemonicParsing="false" text="BruteForce" />
+          <MenuItem id="1" mnemonicParsing="false" onAction="#choseMethodSapport" text="Шифр. с ключом" />
+          <MenuItem id="2" mnemonicParsing="false" onAction="#choseMethodSapport" text="Шифр. рандомно" />
+            <MenuItem id="3" mnemonicParsing="false" onAction="#choseMethodSapport" text="Расшифр. с ключём" />
+            <MenuItem id="4" mnemonicParsing="false" onAction="#choseMethodSapport" text="Статистический метод" />
+            <MenuItem id="5" mnemonicParsing="false" onAction="#choseMethodSapport" text="BruteForce" />
         </items>
       </MenuButton>
    </children>

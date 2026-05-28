@@ -114,6 +114,7 @@ public class Controller {
                     Files.writeString(file1.toPath(),"");
                     saveToFile.saveToFile(encoder.encoderWithCollectionInput(str,keys.addKey(i)),file1.getPath());
                     outputArea.appendText("Шифровка началась рандомный ключом\n");
+                    outputArea.appendText("Шифровка закончилась");
                 }
             }
 

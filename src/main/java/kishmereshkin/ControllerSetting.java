@@ -62,7 +62,7 @@ public class ControllerSetting implements InterfaceSettingController {
         settingsBruteForce.arm();
         selectionMethod = 1;
         controller.setSelectionMethod(selectionMethod);
-        controller.print("Вы выбрали метод BruteForce поле для ввода недоступно \n");
+        controller.getInputField().setPromptText("Вы выбрали метод BruteForce поле для ввода недоступно \n");
         controller.lockInput(false);
 
     }
@@ -72,9 +72,8 @@ public class ControllerSetting implements InterfaceSettingController {
         settingsStaticMethod.arm();
         selectionMethod = 2;
         controller.setSelectionMethod(selectionMethod);
-        controller.print("Вы выбрали статический метод расшифровки поле недоступно\n");
         controller.lockInput(false);
-        controller.getInputField().setText("Данное поле не доступно. Выбран BruteForce\n");
+        controller.getInputField().setPromptText("Вы выбрали статический метод расшифровки поле недоступно\n");
     }
     @FXML
     private void settingEncodThisText(){
@@ -87,7 +86,7 @@ public class ControllerSetting implements InterfaceSettingController {
     private void settingsRandomEncoderClick(ActionEvent event){
         settingsRandomEncoder.arm();
         selectionMethod = 3;
-        controller.getInputField().setText("Вы выбрали случайную шифровку документа это поле недоступно\n");
+        controller.getInputField().setPromptText("Вы выбрали случайную шифровку документа это поле недоступно\n");
         controller.lockInput(false);
         controller.setSelectionMethod(selectionMethod);
     }
@@ -97,7 +96,7 @@ public class ControllerSetting implements InterfaceSettingController {
         settingsEncoder.arm();
         selectionMethod = 4;
         controller.lockInput(true);
-        controller.getInputField().setText("Вы выбрали шифрование по определенному ключу\n");
+        controller.getInputField().setPromptText("Вы выбрали шифрование по определенному ключу\n");
         controller.setSelectionMethod(selectionMethod);
     }
 
