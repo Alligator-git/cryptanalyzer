@@ -49,6 +49,7 @@ public class ControllerSetting implements InterfaceSettingController {
     private Button settingEncodThisText;
 
 
+
     Controller controller;
     StartFXSettings startFXSettings = new StartFXSettings();
     Color colorButton;

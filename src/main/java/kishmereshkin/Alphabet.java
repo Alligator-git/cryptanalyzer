@@ -22,7 +22,4 @@ public class Alphabet {
         }
         return 0;
     }
-    public static List<Character> getAlphabetSmallLetters(){
-        return russianSmallLitters;
-    }
 }
