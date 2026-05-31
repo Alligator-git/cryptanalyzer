@@ -13,9 +13,9 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import lombok.Getter;
 
-@Getter
+
+
 public class ControllerSetting implements InterfaceSettingController {
     @FXML
     private Button settings;
